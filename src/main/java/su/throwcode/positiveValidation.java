@@ -4,21 +4,15 @@ package su.throwcode;
 import java.util.Scanner;
 
 class valid{
-    void ck(int num)
+    void ck(int num) throws ArithmeticException
     {
-        try{
-            if(num < 0)
-            {
-                throw new ArithmeticException("Not a positive Number");
-            }
-            else
-            {
-                System.out.println("Valid positive Number");
-            }
-        }
-        catch(Exception e)
+        if(num < 0)
         {
-            System.out.println(e);
+            throw new ArithmeticException("Not a positive Number");
+        }
+        else
+        {
+            System.out.println("Valid positive Number");
         }
     }
 }
@@ -30,6 +24,13 @@ public class positiveValidation {
         int num = sc.nextInt();
         
         valid va = new valid();
-        va.ck(num);
+        try{
+            va.ck(num);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        
     }
 }

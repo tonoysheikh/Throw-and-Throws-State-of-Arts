@@ -3,22 +3,17 @@ package su.throwcode;
 
 import java.util.Scanner;
 
-class validation{
-    void ck(int age)
+class validation {
+    void ck(int age) throws ArithmeticException
     {
-        try{
-            if(age < 18)
-            {
-                throw new ArithmeticException("Person is not eligible to vote");   
-            }
-            else
-            {
-                System.out.println("adult");
-            }
-        }
-        catch(Exception e)
+        
+        if(age < 18)
         {
-            System.out.println(e);
+            throw new ArithmeticException("Person is not eligible to vote");   
+        }
+        else
+        {
+            System.out.println("adult");
         }
     }
 }
@@ -30,7 +25,14 @@ public class agevalidation {
         int age = sc.nextInt();
         
         validation va = new validation();
-        va.ck(age);
+        try{
+             va.ck(age);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+       
         
     }
   
